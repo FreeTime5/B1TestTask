@@ -8,9 +8,8 @@ namespace B1TestTask.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            var folder = Directory.CreateDirectory(Directory.GetCurrentDirectory() + "/files").FullName;
-            services.AddSingleton<IFileService, FileService>(provider => new FileService(folder));
             services.AddSingleton<ITextService, TextService>();
+            services.AddSingleton<ITaskService, TaskService>();
             return services;
         }
     }
