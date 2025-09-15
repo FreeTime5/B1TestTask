@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\B1TestTask.Data\B1TestTask.Data.csproj" />
     <ProjectReference Include="..\B1TestTask.Services\B1TestTask.Services.csproj" />
   </ItemGroup>
 

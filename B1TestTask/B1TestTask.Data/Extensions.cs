@@ -9,7 +9,7 @@ using B1TestTask.Infrastructure.Services.ProcedureExecutor.Implementations;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace B1TestTask.Infrastructure
+namespace B1TestTask.Data
 {
     public static class Extensions
     {

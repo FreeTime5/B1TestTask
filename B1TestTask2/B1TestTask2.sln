@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35919.96
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask2.Api", "B1TestTask2\B1TestTask2.Api.csproj", "{121237CC-BD65-4286-A4E2-1BD5052ADF5B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask2.Api", "B1TestTask2.Api\B1TestTask2.Api.csproj", "{121237CC-BD65-4286-A4E2-1BD5052ADF5B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask2.Domain", "B1TestTask2.Domain\B1TestTask2.Domain.csproj", "{6DAE5113-9F82-46FC-934B-71BD392AA9C5}"
 EndProject

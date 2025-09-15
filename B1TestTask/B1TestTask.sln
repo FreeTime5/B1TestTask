@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask", "B1TestTask\B1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask.Services", "B1TestTask.Services\B1TestTask.Services.csproj", "{D4E0BF8A-77CC-4B4F-A3C9-0F2D4C286257}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask.Data", "B1TestTask.Infrastructure\B1TestTask.Data.csproj", "{25EA269D-2324-4575-9FF6-74C5ED3CEBB0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B1TestTask.Data", "B1TestTask.Data\B1TestTask.Data.csproj", "{25EA269D-2324-4575-9FF6-74C5ED3CEBB0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
