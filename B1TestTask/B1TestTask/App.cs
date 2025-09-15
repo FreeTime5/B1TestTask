@@ -1,16 +1,11 @@
-﻿using B1TestTask.Domain.Interfaces;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using B1TestTask.Services.Services.TaskService;
+using System.Net.WebSockets;
 
 namespace B1TestTask
 {
     internal class App
     {
-        private const int FILESCOUNT = 100; 
+        private const int FILESCOUNT = 100;
         private readonly ITaskService taskService;
 
         public App(ITaskService taskService)
@@ -20,12 +15,12 @@ namespace B1TestTask
 
         private async Task DisplayMenu()
         {
-            Console.ReadKey(true);  
+            Console.ReadKey(true);
             Console.Clear();
 
-            Console.WriteLine("1) Union files");
-            Console.WriteLine("2) Import files");
-            Console.WriteLine("3) Execute procedure");
+            Console.WriteLine("1) Union files into one");
+            Console.WriteLine("2) Import files into database");
+            Console.WriteLine("3) Find sum of integers and median of decimals");
             Console.WriteLine("0) Exit");
 
             await CheckMenuInput();
@@ -58,17 +53,19 @@ namespace B1TestTask
         private async Task UnionFiles()
         {
             Console.Clear();
+            Console.WriteLine("Input substring: ");
             var subString = Console.ReadLine();
             var deletedLines = await taskService.UnionFiles(subString);
-            Console.WriteLine($"Удалено строк: {deletedLines}");
+            Console.WriteLine($"Lines were ignored: {deletedLines}");
         }
 
         private async Task ImportFiles()
         {
             Console.Clear();
+            Console.WriteLine("Input file number:");
             var fileIndex = Console.ReadLine();
 
-            if (!int.TryParse(fileIndex, out int index) || (index < 0 && index > 99))
+            if (!int.TryParse(fileIndex, out int index) || index < 0 || index > 99)
             {
                 Console.WriteLine("Incorrect input");
             }
@@ -78,7 +75,7 @@ namespace B1TestTask
                 var filePath = files.ElementAt(index);
                 await taskService.ImportFiles(filePath);
             }
-            
+
         }
 
         private async Task ExecuteProcedure()

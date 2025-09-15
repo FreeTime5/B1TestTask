@@ -13,7 +13,7 @@ export const fileApi = {
     const formData = new FormData();
     formData.append('file', file);
     
-    const response = await api.post('/Test', formData, {
+    const response = await api.post('/File', formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
       },
@@ -23,18 +23,18 @@ export const fileApi = {
 
   // Получение списка файлов
   getFiles: async (): Promise<FileMetadata[]> => {
-    const response = await api.get('/Test');
+    const response = await api.get('/File');
     return response.data;
   },
 
   // Получение данных файла
   getFileData: async (fileId: number): Promise<BankStatementData> => {
-    const response = await api.get(`/Test/${fileId}`);
+    const response = await api.get(`/File/${fileId}`);
     return response.data;
   },
 
   // Удаление файла
   deleteFile: async (fileId: number): Promise<void> => {
-    await api.delete(`/Test/${fileId}`);
+    await api.delete(`/File/${fileId}`);
   },
 };

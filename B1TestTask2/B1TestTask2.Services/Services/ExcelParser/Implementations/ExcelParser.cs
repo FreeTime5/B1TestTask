@@ -2,6 +2,7 @@
 using B1TestTask2.Services.Models;
 using B1TestTask2.Services.Services.ExcelParser;
 using NPOI.HSSF.UserModel;
+using NPOI.SS.Formula.Functions;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System.Globalization;
@@ -73,6 +74,12 @@ namespace B1TestTask2.Infrastructure.Services
                 {
                     var record = ParseAccountRecord(row, classTotals.Last(ct => !ct.IsSubclass).Class, file);
                     records.Add(record);
+                }
+
+                if (firstCellValue.StartsWith("БАЛАНС"))
+                {
+                    var totals = ParseBalance(row, firstCellValue, file);
+                    classTotals.Add(totals);
                 }
             }
 
@@ -172,6 +179,26 @@ namespace B1TestTask2.Infrastructure.Services
                 ActiveOutgoingBalance = GetNumericValue(row.GetCell(5)) ?? 0,
                 PassiveOutgoingBalance = GetNumericValue(row.GetCell(6)) ?? 0,
                 Class = classTotals.Class,
+                File = file
+            };
+        }
+
+        private ClassTotals ParseBalance(IRow row, string className, FileMetadata file)
+        {
+            var operationsClass = new Class
+            {
+                Id = className,
+                Name = className
+            };
+            return new ClassTotals
+            {
+                ActiveOpeningBalance = GetNumericValue(row.GetCell(1)) ?? 0,
+                PasiveOpeningBalance = GetNumericValue(row.GetCell(2)) ?? 0,
+                DebitTurnover = GetNumericValue(row.GetCell(3)) ?? 0,
+                CreditTurnover = GetNumericValue(row.GetCell(4)) ?? 0,
+                ActiveOutgoingBalance = GetNumericValue(row.GetCell(5)) ?? 0,
+                PassiveOutgoingBalance = GetNumericValue(row.GetCell(6)) ?? 0,
+                Class = operationsClass,
                 File = file
             };
         }

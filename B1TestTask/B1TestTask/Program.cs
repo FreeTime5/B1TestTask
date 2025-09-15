@@ -1,10 +1,7 @@
 ﻿using B1TestTask;
-using B1TestTask.Domain.Interfaces;
 using B1TestTask.Infrastructure;
 using B1TestTask.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;

@@ -99,9 +99,7 @@ const FileViewer: React.FC<FileViewerProps> = ({ fileId }) => {
         <TabPane tab="Итоги по классам" key="totals">
           <VirtualDataTable
             data={data.classTotals.map((t) => ({
-              bankAccount: t.isSubclass
-                ? t.subclass
-                : `${t.classId}. ${t.className}`,
+              bankAccount: t.isSubclass ? t.subclass : t.className,
               activeOpeningBalance: t.activeOpeningBalance,
               pasiveOpeningBalance: t.pasiveOpeningBalance,
               debitTurnover: t.debitTurnover,
